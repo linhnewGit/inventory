@@ -36,8 +36,13 @@
                                 <td><?php echo $row['price']; ?></td>
                                 <td><?php echo $row['quantity']; ?></td>
                                 <td><?php echo $row['category_name']; ?></td>
-                                <td>Update</td>
-                                <td>Delete</td>
+                                
+                                <td>
+                                    <a href="index.php?page_layout=update&id=<?php echo $row['p_id']; ?>">Update</a>
+                                </td>
+                                <td>
+                                    <a href="index.php?page_layout=delete&id=<?php echo $row['p_id']; ?>">Delete</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     
