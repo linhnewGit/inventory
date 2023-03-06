@@ -1,9 +1,8 @@
 <?php
-    $connect = mysqli_connect('localhost','root','','inventory_demo');
+    $connect = mysqli_connect('localhost','root','','inventory');
     if($connect){
-        mysqli_query($connect, "SET NAME 'UFT8'");
-        echo "Connect success";
+        mysqli_query($connect, "SET NAMES 'UTF8'");
     }else{
-        echo "Connect fail";
+        echo 'Connect fail';
     }
 ?>
