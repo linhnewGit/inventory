@@ -2,23 +2,26 @@
     $id = $_GET['id'];
     $sql_category = "SELECT * FROM category";
     $query_category = mysqli_query($connect, $sql_category);
-    $sql_up = "SELECT * FROM product where p_id=$id";
+    $sql_up = "SELECT * FROM product where p_id = $id";
     $query_up = mysqli_query($connect, $sql_up);
     $row_up = mysqli_fetch_assoc($query_up);
 
     if(isset($_POST['sbm'])){
         $p_name = $_POST['p_name'];
         if($_FILES['image']['name']==''){
-            $image = $row_up['p_name'];
+            $image = $row_up['image'];
         }else{
-            $image = $row_up['p_name'];
+            //$image = $row_up['image'];
+            $image = $_FILES['image']['name'];
+            $image_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($image_tmp, 'img/'.$image);
         }
         
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
         $category_id = $_POST['category_id'];
-        $sql = "UPDATE product SET p_name, image, price, quantity, category_id)
-        VALUE ('$p_name', '$image', $price, $quantity, $category_id)";
+        $sql = "UPDATE product SET p_name = '$p_name', image = '$image', 
+        price = $price, quantity = $quantity, category_id = $category_id WHERE p_id = $id";
         $query = mysqli_query($connect, $sql);
         header('location: index.php?page_layout=list');
     }
@@ -33,8 +36,7 @@
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="">Product name</label>
-                  <input type="text" name="p_name" class="form-control" 
-                  required value="<?php echo $row_up['p_name']; ?>">
+                  <input type="text" name="p_name" class="form-control" required value="<?php echo $row_up['p_name']; ?>">
                 </div>
 
                 <div class="form-group">
@@ -44,14 +46,12 @@
 
                 <div class="form-group">
                   <label for="">Product price</label>
-                  <input type="number" name="price" class="form-control" 
-                  required value="<?php echo $row_up['price']; ?>">
+                  <input type="number" name="price" class="form-control" required value="<?php echo $row_up['price']; ?>">
                 </div>
 
                 <div class="form-group">
                   <label for="">Quantity</label>
-                  <input type="number" name="quantity" class="form-control" 
-                  required value="<?php echo $row_up['quantity']; ?>">
+                  <input type="number" name="quantity" class="form-control" required value="<?php echo $row_up['quantity']; ?>">
                 </div>
 
                 <div class="form-group">

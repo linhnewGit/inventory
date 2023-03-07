@@ -41,7 +41,6 @@
         }
     ?>
 </body>
-
 <style>
         body{
             background-image: url('img/phone_shop.jpg');

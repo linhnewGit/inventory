@@ -12,7 +12,7 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th>#</th>
+                        <th>*</th>
                         <th>Product name</th>
                         <th>Product image</th>
                         <th>Price</th>
@@ -54,6 +54,6 @@
 </div>
 <script>
     function Delete(name){
-        return confirm("Are you sure you want to delete the product: "+name+);
+        return confirm("Are you sure you want to delete the product: "+name);
     }
 </script>
