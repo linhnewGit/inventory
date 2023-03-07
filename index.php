@@ -41,4 +41,22 @@
         }
     ?>
 </body>
+
+<style>
+        body{
+            background-image: url('img/phone_shop.jpg');
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table{
+            border: 1px solid black;
+        }
+        th, td{
+            border-bottom: 2px solid #000;
+        }
+        tr:hover{
+            background-color: #AAA;
+        }
+    </style>
 </html>

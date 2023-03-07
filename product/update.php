@@ -43,12 +43,12 @@
 
                 <div class="form-group">
                   <label for="">Product price</label>
-                  <input type="number" name="price" class="form-control" required>
+                  <input type="number" name="price" class="form-control" required value="<?php echo $row_up['price']; ?>">
                 </div>
 
                 <div class="form-group">
                   <label for="">Quantity</label>
-                  <input type="number" name="quantity" class="form-control" required>
+                  <input type="number" name="quantity" class="form-control" required value="<?php echo $row_up['quantity']; ?>">
                 </div>
 
                 <div class="form-group">

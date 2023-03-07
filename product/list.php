@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h2>List of product</h2>
+            <h2>LIST OF PRODUCT</h2>
         </div>
         <div class="card-body">
             <table class="table">
@@ -54,6 +54,6 @@
 </div>
 <script>
     function Delete(name){
-        return confirm("Are you sure you want to delete the product: "+name+"?");
+        return confirm("Are you sure you want to delete the product: "+name+);
     }
 </script>
