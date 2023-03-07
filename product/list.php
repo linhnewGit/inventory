@@ -41,7 +41,7 @@
                                     <a href="index.php?page_layout=update&id=<?php echo $row['p_id']; ?>">Update</a>
                                 </td>
                                 <td>
-                                    <a href="index.php?page_layout=delete&id=<?php echo $row['p_id']; ?>">Delete</a>
+                                    <a onclick="return Delete('<?php echo $row['p_name']; ?>')" href="index.php?page_layout=delete&id=<?php echo $row['p_id']; ?>">Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -52,3 +52,8 @@
         </div>
     </div>
 </div>
+<script>
+    function Delete(name){
+        return confirm("Are you sure you want to delete the product: "+name+"?");
+    }
+</script>
