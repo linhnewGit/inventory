@@ -9,10 +9,10 @@
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
         $category_id = $_POST['category_id'];
-        $sql = "INSERT INTO product (p_name, image, price, quantity, category_id)
+        $sql = "INSERT INTO product (p_name, image, price, quantity, category_id )
         VALUE ('$p_name', '$image', $price, $quantity, $category_id)";
         $query = mysqli_query($connect, $sql);
-        moce_upload_file($image_tmp, 'img/'.$image);
+        move_uploaded_file($image_tmp, 'img/'.$image);
         header('location: index.php?page_layout=list');
     }
 ?>
@@ -20,7 +20,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h2>Add new inventory</h2>
+            <h2>Add inventory</h2>
         </div>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data">
@@ -49,7 +49,8 @@
                   <select class="form-control" name="category_id">
                     <?php
                         while($row_category = mysqli_fetch_assoc($query_category)){?>
-                            <option value = "<?php echo $row_category['category_id']; ?>"><?php echo $row_category['category_name']; ?></option>
+                            <option value = "<?php echo $row_category['category_id']; ?>">
+                              <?php echo $row_category['category_name']; ?></option>
                         <?php } ?>
                     
                   </select>
